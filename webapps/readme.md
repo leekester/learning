@@ -19,6 +19,13 @@ containerapp                                v1        5b3f52c8154d   55 minutes 
 ```shell
 D:\learning\webapps>docker tag containerapp:v1 acrdemo87533.azurecr.io/apps/containerapp:v1
 ```
+* You should now see an additional image in your list:
+```shell
+D:\learning\webapps>docker images
+REPOSITORY                                  TAG       IMAGE ID       CREATED          SIZE
+containerapp                                v1        5b3f52c8154d   55 minutes ago   24.9MB
+acrdemo87533.azurecr.io/apps/containerapp   v1        5b3f52c8154d   55 minutes ago   24.9MB
+```
 * Login to your ACR, replacing the name of your registry in the following command:
 ```shell
 D:\learning\webapps>az acr login -n acrdemo87533.azurecr.io
