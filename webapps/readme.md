@@ -5,10 +5,13 @@ To build the applications:
 * If you don't already have it, install Docker
 * Install the Azure CLI if you don't already have it
 * Change to the webapps directory
-* In order to build the puppies site for example, run
+* In order to build the puppies site for example, run:
 ```shell
-docker build ./puppies -t containerapp:v1 -f ./puppies/dockerfile
+D:\learning\webapps>docker build ./puppies -t containerapp:v1 -f ./puppies/dockerfile
 ```
-* To push to an Azure Container Registry, first create an alias for your image that contains the fully qualified path to your ACR. In the above case for example, create an alias using <em>docker tag containerapp:v1 acrdemo87533.azurecr.io/apps/containerapp:v1</em>
+* To push to an Azure Container Registry, first create an alias for your image that contains the fully qualified path to your ACR. In the above case for example, create an alias using:
+```shell
+D:\learning\webapps>docker tag containerapp:v1 acrdemo87533.azurecr.io/apps/containerapp:v1
+```
 * Login to your ACR, replacing the name of your registry in the following command: <em>az acr login -n acrdemo87533.azurecr.io</em>
 * Push the image using <em>docker push acrdemo87533.azurecr.io/apps/containerapp:v1
