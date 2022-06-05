@@ -5,4 +5,4 @@ To build the applications:
 * If you don't already have it, install Docker
 * Change to the webapps directory
 * In order to build the puppies site for example, run
-** docker build ./puppies -t puppies:v1 -f ./puppies/dockerfile
+* * docker build ./puppies -t puppies:v1 -f ./puppies/dockerfile
