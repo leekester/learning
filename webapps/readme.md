@@ -34,3 +34,22 @@ D:\learning\webapps>az acr login -n acrdemo87533.azurecr.io
 ```shell
 D:\learning\webapps>docker push acrdemo87533.azurecr.io/apps/containerapp:v1
 ```
+* We can now check the repository to view the image which was pushed:
+```shell
+D:\learning\webapps>az acr repository list --name acrdemo87533 -o tsv
+apps/containerapp
+D:\learning\learning\webapps>az acr repository show --name acrdemo87533 --image apps/containerapp:v1
+{
+  "changeableAttributes": {
+    "deleteEnabled": true,
+    "listEnabled": true,
+    "readEnabled": true,
+    "writeEnabled": true
+  },
+  "createdTime": "2022-06-05T18:59:10.9782206Z",
+  "digest": "sha256:375808c3d51313656540dff1edb5b10a82e61607044e66021c1f11c7f0f13c16",
+  "lastUpdateTime": "2022-06-05T18:59:10.9782206Z",
+  "name": "v1",
+  "signed": false
+}
+```
