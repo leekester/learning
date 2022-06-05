@@ -13,5 +13,10 @@ D:\learning\webapps>docker build ./puppies -t containerapp:v1 -f ./puppies/docke
 ```shell
 D:\learning\webapps>docker tag containerapp:v1 acrdemo87533.azurecr.io/apps/containerapp:v1
 ```
-* Login to your ACR, replacing the name of your registry in the following command: <em>az acr login -n acrdemo87533.azurecr.io</em>
-* Push the image using <em>docker push acrdemo87533.azurecr.io/apps/containerapp:v1
+* Login to your ACR, replacing the name of your registry in the following command:
+```console
+D:\learning\webapps>az acr login -n acrdemo87533.azurecr.io
+```
+* Push the image using:
+```console
+D:\learning\webapps>docker push acrdemo87533.azurecr.io/apps/containerapp:v1
