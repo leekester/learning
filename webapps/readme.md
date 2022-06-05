@@ -11,12 +11,12 @@ D:\learning\webapps>docker build ./puppies -t containerapp:v1 -f ./puppies/docke
 ```
 * Docker images can be listed using the following command:
 ```shell
+D:\learning\webapps>docker images
 REPOSITORY                                  TAG       IMAGE ID       CREATED          SIZE
 containerapp                                v1        5b3f52c8154d   55 minutes ago   24.9MB
 ```
 * To push to an Azure Container Registry, first create an alias for your image that contains the fully qualified path to your ACR. In the above case for example, create an alias using:
 ```shell
-D:\learning\webapps>docker images
 D:\learning\webapps>docker tag containerapp:v1 acrdemo87533.azurecr.io/apps/containerapp:v1
 ```
 * Login to your ACR, replacing the name of your registry in the following command:
