@@ -4,5 +4,5 @@ To build the applications:
 * Clone the repository
 * If you don't already have it, install Docker
 * Change to the webapps directory
-* In order to build the puppies site for example, run
-* * docker build ./puppies -t puppies:v1 -f ./puppies/dockerfile
+* In order to build the puppies site for example, run <em>docker build ./puppies -t puppies:v1 -f ./puppies/dockerfile</em>
+* To push to an Azure Container Registry, create an alias for your image that contains the fully qualified path to your ACR. For example the image
