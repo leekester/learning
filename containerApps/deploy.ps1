@@ -1,6 +1,6 @@
 $resourceGroup = "rg-containerapp"
 $location = "uksouth"
-$deployName = ("deployment_" + (Get-Date -Format ddMMyy_HHmmss))
+$deployName = ("deployment_containerApp_" + (Get-Date -Format ddMMyy_HHmmss))
 az group create -n $resourceGroup -l $location
 
 az deployment group create `
