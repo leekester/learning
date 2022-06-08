@@ -19,5 +19,5 @@ ForEach ($i in 1..$count) {
 
 Write-Host
 Write-Host ("Total puppy count: " + $puppyCount)
-Write-Host ("Total puppy count: " + $canaryCount)
+Write-Host ("Total canary count: " + $canaryCount)
 Write-Host
