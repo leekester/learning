@@ -1,7 +1,7 @@
 param location string = 'uksouth'
 param zoneRedundant bool = false
 param appName string = 'petsapp'
-param acr string = 'acrdemo34338671.azurecr.io'
+param acr string = 'acrdemo49577068.azurecr.io'
 
 @allowed([
   'CapacityReservation'
