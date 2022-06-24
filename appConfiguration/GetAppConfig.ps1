@@ -1,3 +1,4 @@
+# Example based on https://docs.microsoft.com/en-us/azure/azure-app-configuration/rest-api-authentication-hmac#powershell
 $outputFile = "test.properties"
 $ErrorActionPreference = "Stop"
 $appConfigInstance = "https://<YOUR-APP-CONFIG>.azconfig.io"
