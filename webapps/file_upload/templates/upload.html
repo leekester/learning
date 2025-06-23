@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+  <title>File Upload</title>
+  <style>
+    input[type="file"] {
+        display: none;
+    }
+    body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    .custom-file-upload {
+        background-color: #da291c;
+        color: white;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        padding: 8px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        display: inline-block;
+        width: 100px;
+    }
+    .upload-button {
+        background-color: #da291c;
+        border: 0px;
+        color: white;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        margin-top:15px;
+        padding: 8px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        display: inline-block;
+        width: 100px;
+    }
+    #file-chosen {
+        margin-left: 8px;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    .flash {
+        padding: 10px;
+        margin-top: 20px;
+        border-radius: 4px;
+    }
+    .flash.success {
+        background-color: #d4edda;
+        color: #155724;
+    }
+    .flash.error {
+        background-color: #f8d7da;
+        color: #721c24;
+    }
+  </style>
+</head>
+<body>
+  <h1>Upload a File</h1>
+  <form method="post" enctype="multipart/form-data">
+    <label for="file" class="custom-file-upload">Choose a File</label>
+    <input id="file" name="file" type="file"/>
+    <span id="file-chosen">No file chosen</span>
+    <br><br>
+    <input type="submit" class="upload-button" value="Upload">
+  </form>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="flash {{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <script>
+    const fileInput = document.getElementById('file');
+    const fileChosen = document.getElementById('file-chosen');
+
+    fileInput.addEventListener('change', function(){
+      fileChosen.textContent = this.files.length > 0 ? this.files[0].name : 'No file chosen';
+    })
+  </script>
+</body>
+</html>
