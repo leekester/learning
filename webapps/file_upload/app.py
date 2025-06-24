@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template, redirect, url_for, flash, send_from_directory
 import os
+import socket
 
 app = Flask(__name__)
 
@@ -33,16 +34,17 @@ def upload_file():
             flash('No selected file', 'error')
             return redirect(request.url)
 
-        if file:
+        if file and allowed_file(file.filename):
             filename = file.filename  # In a production app, generate a unique filename
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             flash(f'File "{filename}" uploaded successfully', 'success')
             return redirect(url_for('upload_file'))
         else:
-            flash('Invalid file type. Allowed types are: txt, pdf, png, jpg, jpeg, gif', 'error')
+            flash(f'Invalid file type. Allowed types are: {", ".join(ALLOWED_EXTENSIONS)}', 'error')
             return redirect(request.url)
 
-    return render_template('upload.html')
+    container_id = socket.gethostname()
+    return render_template('upload.html', container_id=container_id)
 
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):
