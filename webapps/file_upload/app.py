@@ -34,7 +34,7 @@ def upload_file():
             flash('No selected file', 'error')
             return redirect(request.url)
 
-        if file and allowed_file(file.filename):
+        if file:
             filename = file.filename  # In a production app, generate a unique filename
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             flash(f'File "{filename}" uploaded successfully', 'success')
