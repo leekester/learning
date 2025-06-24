@@ -9,6 +9,11 @@
     body {
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
+    .container {
+      width: 55%;
+      margin: 0 auto;
+      margin-top: 5%;
+    }
     .custom-file-upload {
         background-color: #da291c;
         color: white;
@@ -52,6 +57,7 @@
   </style>
 </head>
 <body>
+  <div class="container">
   <h1>Upload a File</h1>
   <form method="post" enctype="multipart/form-data">
     <label for="file" class="custom-file-upload">Choose a File</label>
@@ -68,6 +74,7 @@
       {% endfor %}
     {% endif %}
   {% endwith %}
+  </div>
 
   <script>
     const fileInput = document.getElementById('file');

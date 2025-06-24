@@ -1,0 +1,91 @@
+id: /subscriptions/46bae252-c302-4952-a1fa-9b88a2564e7d/resourceGroups/rg-lunch-and-learn/providers/Microsoft.App/containerapps/ca-file-upload
+identity:
+  type: None
+kind: containerapps
+location: UK South
+name: ca-file-upload
+properties:
+  configuration:
+    activeRevisionsMode: Single
+    dapr: null
+    identitySettings: []
+    ingress:
+      additionalPortMappings: null
+      allowInsecure: true
+      clientCertificateMode: Ignore
+      corsPolicy: null
+      customDomains: null
+      exposedPort: 0
+      external: true
+      fqdn: ca-file-upload.salmonsea-d2fc16c4.uksouth.azurecontainerapps.io
+      ipSecurityRestrictions: null
+      stickySessions:
+        affinity: none
+      targetPort: 5000
+      targetPortHttpScheme: null
+      traffic:
+      - latestRevision: true
+        weight: 100
+      transport: Auto
+    maxInactiveRevisions: 100
+    registries:
+    - identity: ''
+      passwordSecretRef: reg-pswd-7bd3f58f-a86e
+      server: acrdemo75050032.azurecr.io
+      username: acrdemo75050032
+    revisionTransitionThreshold: null
+    runtime: null
+    secrets:
+    - name: reg-pswd-7bd3f58f-a86e
+    service: null
+    targetLabel: ''
+  customDomainVerificationId: DCD8354A41A9A72FD15A09B9240980607CE743AACB2E68A9014F93FF5607DCB7
+  delegatedIdentities: []
+  environmentId: /subscriptions/46bae252-c302-4952-a1fa-9b88a2564e7d/resourceGroups/rg-lunch-and-learn/providers/Microsoft.App/managedEnvironments/env-petsapp
+  eventStreamEndpoint: https://uksouth.azurecontainerapps.dev/subscriptions/46bae252-c302-4952-a1fa-9b88a2564e7d/resourceGroups/rg-lunch-and-learn/containerApps/ca-file-upload/eventstream
+  latestReadyRevisionName: ca-file-upload--0000001
+  latestRevisionFqdn: ca-file-upload--0000001.salmonsea-d2fc16c4.uksouth.azurecontainerapps.io
+  latestRevisionName: ca-file-upload--0000001
+  managedEnvironmentId: /subscriptions/46bae252-c302-4952-a1fa-9b88a2564e7d/resourceGroups/rg-lunch-and-learn/providers/Microsoft.App/managedEnvironments/env-petsapp
+  outboundIpAddresses:
+  - 4.250.49.28
+  patchingMode: Automatic
+  provisioningState: Succeeded
+  runningStatus: Running
+  template:
+    containers:
+    - image: acrdemo75050032.azurecr.io/file_upload:1.0.0
+      imageType: ContainerImage
+      name: ca-file-upload
+      volumeMounts:
+      - volumeName: uploads
+        mountPath: /app/uploads
+      probes: []
+      resources:
+        cpu: 0.25
+        ephemeralStorage: 1Gi
+        memory: 0.5Gi
+    volumes:
+    - name: uploads
+      storageType: AzureFile
+      storageName: uploads
+    initContainers: null
+    revisionSuffix: ''
+    scale:
+      cooldownPeriod: 300
+      maxReplicas: 10
+      minReplicas: 0
+      pollingInterval: 30
+      rules: null
+    serviceBinds: null
+    terminationGracePeriodSeconds: null
+  workloadProfileName: null
+resourceGroup: rg-lunch-and-learn
+systemData:
+  createdAt: '2025-06-23T22:17:49.1802442'
+  createdBy: matthew.leeke@hiscox.com
+  createdByType: User
+  lastModifiedAt: '2025-06-24T07:01:16.9886903'
+  lastModifiedBy: matthew.leeke@hiscox.com
+  lastModifiedByType: User
+type: Microsoft.App/containerApps
