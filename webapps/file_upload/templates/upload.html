@@ -1,28 +1,95 @@
 <!doctype html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>File Upload</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>File Upload</title>
+  <style>
+    input[type="file"] {
+        display: none;
+    }
+    body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    .container {
+      width: 55%;
+      margin: 0 auto;
+      margin-top: 5%;
+    }
+    .custom-file-upload {
+        background-color: #da291c;
+        color: white;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        padding: 8px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        display: inline-block;
+        width: 100px;
+    }
+    .upload-button {
+        background-color: #da291c;
+        border: 0px;
+        color: white;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        margin-top:15px;
+        padding: 8px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        display: inline-block;
+        width: 100px;
+    }
+    #file-chosen {
+        margin-left: 8px;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    .flash {
+        padding: 10px;
+        margin-top: 20px;
+        border-radius: 4px;
+    }
+    .flash.success {
+        background-color: #d4edda;
+        color: #155724;
+    }
+    .flash.error {
+        background-color: #f8d7da;
+        color: #721c24;
+    }
+    .servedBy {
+      font-family: 'Courier New', Courier, monospace;
+      margin-top: 10%;
+    }
+  </style>
 </head>
-<body class="container mt-5">
-    <div class="card">
-        <div class="card-header">
-            <h1>Upload a New File</h1>
-        </div>
-        <div class="card-body">
-            <!-- Flash messages would go here -->
-            <form method="post" enctype="multipart/form-data">
-                <div class="form-group">
-                    <input type="file" name="file" class="form-control-file">
-                </div>
-                <button type="submit" class="btn btn-primary">Upload</button>
-            </form>
-        </div>
-        <div class="card-footer text-muted">
-            <!-- This is the new line to add -->
-            <small>Served by container: {{ container_id }}</small>
-        </div>
-    </div>
+<body>
+  <div class="container">
+  <h1>Upload a File</h1>
+  <form method="post" enctype="multipart/form-data">
+    <label for="file" class="custom-file-upload">Choose a File</label>
+    <input id="file" name="file" type="file"/>
+    <span id="file-chosen">No file chosen</span>
+    <br><br>
+    <input type="submit" class="upload-button" value="Upload">
+  </form>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="flash {{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <div class="servedBy">
+    Served by container: <strong>{{ container_id }}</strong>
+  </div>
+
+  <script>
+    const fileInput = document.getElementById('file');
+    const fileChosen = document.getElementById('file-chosen');
+
+    fileInput.addEventListener('change', function(){
+      fileChosen.textContent = this.files.length > 0 ? this.files[0].name : 'No file chosen';
+    })
+  </script>
 </body>
 </html>
